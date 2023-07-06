@@ -31,6 +31,8 @@ export const staggerContainer = (staggerChildren, delayChildren) => {
   };
 };
 
+// about variants
+
 export const plateVariants = {
   hidden: {
     x: '120%',
@@ -82,3 +84,37 @@ export const navVariants = {
     },
   },
 };
+
+// menu variants
+
+export const menuVariants = {
+  hidden: {
+    y: 150,
+    opacity: 0,
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'tween',
+      delay: 0.2,
+      duration: 1.6,
+      ease: 'easeOut',
+    },
+  },
+};
+
+// initial={{
+//   opacity: 0,
+//   y: 150,
+// }}
+// whileInView={{
+//   opacity: 1,
+//   y: 0,
+// }}
+// transition={{
+//   type: 'tween',
+//   delay: 0.2,
+//   duration: 1.6,
+//   ease: 'easeOut',
+// }}
