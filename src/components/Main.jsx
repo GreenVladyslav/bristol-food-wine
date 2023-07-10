@@ -13,7 +13,7 @@ const Main = () => {
   const { pretitle, title, subtitle, btnText } = mainData;
 
   return (
-    <section className="min-h-[980px] bg-main bg-cover bg-right">
+    <section className="min-h-[980px] bg-main bg-cover bg-right" id="#">
       {/* header */}
       <Header />
       <div className="container mx-auto min-h-[980px] flex justify-center items-center">
@@ -32,6 +32,10 @@ const Main = () => {
           {/* title */}
           <motion.h1 variants={fadeIn('down', 'tween', 0.3, 1.1)} className="h1 mb-1">
             {title}
+            <div>
+              FOOD <span className="text-5xl font-secondary">&</span> WINE
+            </div>
+            {/* <div>{titleLow}</div> */}
           </motion.h1>
           {/* subtitle */}
           <motion.p

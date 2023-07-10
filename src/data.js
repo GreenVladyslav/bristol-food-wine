@@ -4,164 +4,196 @@ import { FaYoutube, FaFacebookF, FaInstagram, FaPinterestP, FaDiscord } from 're
 import AboutImg from '../src/assets/img/about/plate.png';
 import ModelWhiteImg from '../src/assets/img/model-white.png';
 import ModelBlackImg from '../src/assets/img/model-black.png';
-import MenuImg1 from '../src/assets/img/menu/1.png';
-import MenuImg2 from '../src/assets/img/menu/2.png';
-import MenuImg3 from '../src/assets/img/menu/3.png';
-import MenuImg4 from '../src/assets/img/menu/4.png';
+
+import MenuImg1 from '../src/assets/img/menu/first.png';
+import MenuImg2 from '../src/assets/img/menu/second.png';
+import MenuImg3 from '../src/assets/img/menu/third.png';
+import MenuImg4 from '../src/assets/img/menu/fourth.png';
+
 import SignatureImg from '../src/assets/img/team/signature.png';
 import ChefImg from '../src/assets/img/team/chef.png';
 import Avatar1 from '../src/assets/img/testimonial/avatar1.png';
 import Avatar2 from '../src/assets/img/testimonial/avatar2.png';
 import Avatar3 from '../src/assets/img/testimonial/avatar3.png';
 
-export const navData = [
-  { href: '/', name: 'home' },
-  { href: '/', name: 'about' },
-  { href: '/', name: 'menu' },
-  { href: '/', name: 'team' },
-  { href: '/', name: 'testimonials' },
-  { href: '/', name: 'book a table' },
-  { href: '/', name: 'contact' },
+import MenuPhoto1 from '../src/assets/img/menu/photo_1.jpg';
+import MenuPhoto2 from '../src/assets/img/menu/photo_2.jpg';
+import MenuPhoto3 from '../src/assets/img/menu/photo_3.jpg';
+import MenuPhoto4 from '../src/assets/img/menu/photo_4.jpg';
+import MenuPhoto5 from '../src/assets/img/menu/photo_5.jpg';
+import MenuPhoto6 from '../src/assets/img/menu/photo_6.jpg';
+import MenuPhoto7 from '../src/assets/img/menu/photo_7.jpg';
+import MenuPhoto8 from '../src/assets/img/menu/photo_8.jpg';
+import MenuPhoto9 from '../src/assets/img/menu/photo_9.jpg';
+import MenuPhoto10 from '../src/assets/img/menu/photo_10.jpg';
+
+export const menuPhoto = [
+  MenuPhoto1,
+  MenuPhoto2,
+  MenuPhoto3,
+  MenuPhoto4,
+  MenuPhoto5,
+  MenuPhoto6,
+  MenuPhoto7,
+  MenuPhoto8,
+  MenuPhoto9,
+  MenuPhoto10,
 ];
 
+export const navData = [
+  { href: '#', name: 'Головна' },
+  { href: '#about', name: 'О нас' },
+  { href: '#menu', name: 'Меню' },
+  { href: '#team', name: 'Команда' },
+  { href: '#testimonial', name: 'Відгуки' },
+  { href: '#resrvation', name: 'Замовити столик' },
+  { href: '#contact', name: 'Контакти' },
+];
+
+// my mainData
 export const mainData = {
-  pretitle: 'Nothing brings together like',
-  title: 'Bistro Cafe',
-  subtitle:
-    'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. ',
-  btnText: 'Find out more',
+  pretitle: 'Ніщо так не зближує як',
+  title: 'Bristol',
+  subtitle: 'Найсмачніша кухня біля твого дому❤️',
+  btnText: 'Дізнатися більше',
 };
 
 export const socialData = [
   { href: '/', icon: <FaYoutube /> },
-  { href: '/', icon: <FaFacebookF /> },
-  { href: '/', icon: <FaInstagram /> },
+  { href: 'https://www.facebook.com/epiceriefinebenelux/', icon: <FaFacebookF /> },
+  {
+    href: 'https://www.instagram.com/bristol_food_and_wine/?igshid=MzRlODBiNWFlZA%3D%3D',
+    icon: <FaInstagram />,
+  },
   { href: '/', icon: <FaPinterestP /> },
   { href: '/', icon: <FaDiscord /> },
 ];
 
 export const aboutData = {
-  pretitle: 'our story',
-  title: 'who we are',
+  pretitle: 'Наша історія',
+  title: 'хто ми',
   subtitle:
-    'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet consequatur, quasi minima molestiae ex exercitationem culpa quisquam architecto quaerat, iusto dolores labore, sapiente magni rem commodi aperiam ad dolorem neque ducimus. Placeat vel non quod quis pariatur a aperiam, aliquam adipisci voluptatum voluptatem sit cupiditate dolore natus beatae earum omnis.',
-  btnText: 'find out more',
+    'Ласкаво просимо до Bristol FOOD & WINE, кулінарної перлини, розташованої в самому серці Нової Англії, жвавого житлового комплексу. Наш ресторан став улюбленим місцем, де пропонують чудове поєднання вишуканої їжі та вишуканих вин. Увійшовши через наші двері, ви відкриєте для себе теплу та привабливу атмосферу, яка ніби є продовженням вашого власного дому. Наша історія переплітається з історіями наших відданих меценатів, які пережили незліченну кількість пам’ятних моментів у цих стінах. Приєднуйтесь до нас у гастрономічній подорожі, яка прославляє дух спільноти та любов до смачної їжі.',
+  btnText: 'дізнатися більше',
   image: AboutImg,
 };
 
 export const menuData = {
-  title: 'delicious flavour of autumn',
-  subtitle: 'view all menu for tasty meal today',
+  title: 'Смачний аромат осені',
+  subtitle: 'Перегляньте все меню, щоб смачно поїсти сьогодні',
   modelImg: ModelWhiteImg,
-  btnText: 'view complete menu',
+  btnText: 'переглянути повне меню',
   menuItems: [
     {
       image: MenuImg1,
-      name: 'Chocolate Cake',
-      price: '$7.99',
-      description: 'Class aptent taciti ciosqu litora torquent per',
+      name: 'Удон з телятиною 🌶️',
+      price: '228 ₴',
+      description: 'Локшина пшенична, телятина, цибуля ріпчаста',
     },
     {
       image: MenuImg2,
-      name: 'Veggie Burger',
-      price: '$9.49',
-      description: 'Class aptent taciti ciosqu litora torquent per',
+      name: 'Єль-Вандон ☀️',
+      price: '249 ₴',
+      description: 'Сир фета в беконі з міксом салату, полуницею та ягідним соусом 🍓',
     },
     {
       image: MenuImg3,
-      name: 'King Burger',
-      price: '$8.50',
-      description: 'Class aptent taciti ciosqu litora torquent per',
+      name: 'Стейк зі свинини',
+      price: '339 ₴',
+      description: 'З полуницею чілі 🌶️ та соусом дор блю',
     },
     {
       image: MenuImg4,
-      name: 'Mexican Burger',
-      price: '$9.99',
-      description: 'Class aptent taciti ciosqu litora torquent per',
+      name: 'Канелоні з куркою',
+      price: '199 ₴',
+      description: 'З білими грибами під сирним соусом 🧀',
     },
   ],
 };
 
 export const teamData = {
-  pretitle: 'our team',
-  title: 'meet our chef',
-  sub1: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis adipisci repudiandae enim ratione corrupti voluptatum suscipit distinctio dolor.',
-  sub2: 'Sequi exercitationem quae deserunt reiciendis nesciunt perferendis atque quisquam, odit facere! Minima esse reiciendis, magnam fugiat totam maxime consequatur perspiciatis voluptas consequuntur.',
-  name: 'sara peter',
-  occupation: 'executive chef',
+  pretitle: 'Наша команда',
+  title: 'Зустрічайте нашого шеф-кухаря',
+  sub1: 'У Bristol FOOD & WINE наші кулінарні твори організовані талановитим і пристрасним шеф-кухарем. З глибокою любов’ю до їжі та чуттям до творчості наш шеф-кухар майстерно поєднує смаки та текстури, щоб створити надзвичайні страви, які залишають незабутнє враження.',
+  sub2: 'Приєднуйтесь до нас у гастрономічній подорожі, оскільки наш шеф-кухар проведе вас у кулінарній пригоді, наповненій інноваційними смаками та чудовими сюрпризами.',
+  name: 'Эктор Хименес-Браво',
+  occupation: 'Виконавчий директор',
   signatureImg: SignatureImg,
   chefImg: ChefImg,
 };
 
 export const testimonialData = {
-  title: "what client's say ",
-  subtitle: '1500+ statisfied clients',
+  title: 'Що говорять клієнти',
+  subtitle: '1500+ задоволених клієнтів',
   modelImg: ModelWhiteImg,
   slider: [
     {
       message:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quas ipsum eius voluptatibus. Quod ipsum ullam id facere a beatae incidunt eaque, veritatis architecto cum perferendis debitis tempora.',
+        'Коли справа доходить до вишуканої кухні, Bristol FOOD & WINE виділяється справжньою перлиною. З того моменту, як ви зайшли, ви захоплюєтеся елегантною атмосферою та увагою до деталей. Затишна атмосфера ресторану в поєднанні з бездоганним обслуговуванням створюють умови для незабутнього обіду.',
       image: Avatar1,
-      name: 'Rick Thompson',
-      occupation: 'CEO of Delightful',
+      name: 'Ольга М.',
+      occupation: 'Засновник Кулінарної Академії',
     },
     {
       message:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quas ipsum eius voluptatibus. Quod ipsum ullam id facere a beatae incidunt eaque, veritatis architecto cum perferendis debitis tempora.',
+        'Bristol FOOD & WINE володіє мистецтвом приготування стейків. Кожен шматочок - це насолода, з ніжним і соковитим смаком, який залишає незабутнє враження. Любителі м’яса обов’язково повинні спробувати їх стейки, від класичних нарізок до унікальних фірмових страв.',
       image: Avatar2,
-      name: 'John Doe',
-      occupation: 'CEO of Delightful',
+      name: 'Євген К.',
+      occupation: 'Шеф повар',
     },
     {
       message:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quas ipsum eius voluptatibus. Quod ipsum ullam id facere a beatae incidunt eaque, veritatis architecto cum perferendis debitis tempora.',
+        'Bristol FOOD & WINE - це свято для почуттів. Спокусливі аромати, візуально приголомшливі презентації та вишукані смаки створюють симфонію насолоди. Незалежно від того, чи це романтична вечеря, чи особливе свято, насолоджуйтесь неперевершеними гастрономічними враженнями.',
       image: Avatar3,
-      name: 'Henry A.',
-      occupation: 'CEO of Delightful',
+      name: 'Володимир Я.',
+      occupation: 'Дизайнер',
     },
   ],
 };
 
 export const reservationData = {
-  title: 'booking form',
+  title: 'форма бронювання',
   subtitle:
-    'Call (800) 123-4567 from 5AM - 11PM daily, or book online with OpenTable.Reservations required for parties of 6 or more.',
+    'Телефонуйте за номером +380 68 714-42-42 щодня з 9:00 до 21:00 або бронюйте онлайн. Бронювання потрібне для вечірок із 6 і більше осіб.',
   modelImg: ModelBlackImg,
-  btnText: 'make a reservation',
+  btnText: 'забронювати',
 };
 
 export const newsletterData = {
-  title: 'join our newsletter',
-  subtitle: 'Get latest news & updates in your inbox.',
-  placeholder: 'Subscribe our delicious dishes',
-  btnText: 'subscribe now',
+  title: 'приєднатися до нашої розсилки',
+  subtitle: 'Отримуйте останні новини та оновлення на свою поштову скриньку.',
+  placeholder: 'Підпишіться на наші смачні страви',
+  btnText: 'підписатися',
 };
 
 export const footerData = {
   contact: {
-    title: 'contact location',
-    address: '3784 patterson road, #8 new york, CA 69000',
-    phone: '(201)256-3689',
+    title: 'Контакти',
+    address: '📍Київ, вул. Михайла Максимовича, 24б',
+    phone: '📞+80 68 714-42-42',
   },
   hours: {
-    title: 'working hours',
+    title: 'робочі години',
     program: [
       {
-        days: 'monday - friday',
-        hours: '09:00 AM - 10:00 PM',
+        days: "понеділок - п'ятниця",
+        hours: '9:00 до 21:00 ',
       },
       {
-        days: 'saturday - sunday',
-        hours: '09:00 AM - 11:00 PM',
+        days: 'субота - неділя',
+        hours: '9:00 до 21:00',
       },
     ],
   },
   social: {
-    title: 'social network',
+    title: 'соціальні мережі',
     icons: [
       { href: '/', icon: <FaYoutube /> },
-      { href: '/', icon: <FaFacebookF /> },
-      { href: '/', icon: <FaInstagram /> },
+      { href: 'https://www.facebook.com/epiceriefinebenelux/', icon: <FaFacebookF /> },
+      {
+        href: 'https://www.instagram.com/bristol_food_and_wine/?igshid=MzRlODBiNWFlZA%3D%3D',
+        icon: <FaInstagram />,
+      },
       { href: '/', icon: <FaPinterestP /> },
       { href: '/', icon: <FaDiscord /> },
     ],

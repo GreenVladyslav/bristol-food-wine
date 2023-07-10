@@ -15,6 +15,8 @@ import { FaUsers, FaCalendar, FaClock } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 // import variants
 import { fadeIn, staggerContainer } from '../variants';
+// import components
+import ReservationInfoPopup from './ReservationInfoPopup';
 
 const Reservation = () => {
   // destructure reservation data
@@ -22,13 +24,45 @@ const Reservation = () => {
   // data state
   const [startDate, setStartDate] = useState(new Date());
   //clock state
-  const [value, setValue] = useState('10:00');
+  const [clock, setClock] = useState('9:00');
+  // people state
+  const [people, setPeople] = useState('1');
+  // popup state
+  const [isOpen, setIsOpen] = useState(false);
+  // reservationInfo
+  const [reservationInfo, setReservationInfo] = useState(null);
+
+  const setInputValue = (event) => {
+    setPeople(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Do something with the input value
+    console.log('startDate:', startDate);
+    console.log('clock:', clock);
+    console.log('people:', people);
+
+    setReservationInfo({
+      date: startDate,
+      clock: clock,
+      people: people,
+    });
+
+    setIsOpen(true);
+
+    console.log(reservationInfo);
+
+    // Clear the input field
+    setPeople('');
+    setClock('9:00');
+    setStartDate(new Date());
+  };
 
   return (
-    <section className="relative top-96 z-30 pb-20 lg:py-[100px]">
+    <section className="relative top-96 z-30 pb-20 lg:py-[100px]" id="resrvation">
       <div className="container mx-auto">
         {/* text */}
-
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -49,9 +83,9 @@ const Reservation = () => {
             <img src={modelImg} alt="" />
           </motion.div>
         </motion.div>
-
         {/* form */}
         <motion.form
+          onSubmit={handleSubmit}
           variants={fadeIn('up', 'tween', 0.7, 1.6)}
           initial="hidden"
           whileInView={'show'}>
@@ -60,7 +94,7 @@ const Reservation = () => {
             <div>
               <div className="flex items-center gap-x-[10px] font-semibold text-dark text-base mb-3">
                 <FaCalendar />
-                <div>Choose Date</div>
+                <div>Виберіть Дату</div>
               </div>
               <DatePicker
                 className="input"
@@ -72,30 +106,43 @@ const Reservation = () => {
             <div>
               <div className="flex items-center gap-x-[10px] font-semibold text-dark text-base mb-3">
                 <FaClock />
-                <div>Choose Time</div>
+                <div>Виберіть Час</div>
               </div>
               <TimePicker
                 className="input"
                 clearIcon={false}
                 clockIcon={false}
-                onChange={setValue}
-                value={value}
+                onChange={setClock}
+                value={clock}
               />
             </div>
             {/* person nubmber */}
             <div>
               <div className="flex items-center gap-x-[10px] font-semibold text-dark text-base mb-3">
                 <FaUsers />
-                <div>How many people?</div>
+                <div>Скільки людей?</div>
               </div>
-              <input className="input" type="text" placeholder="1" />
+              <input
+                value={people}
+                onChange={setInputValue}
+                className="input"
+                type="text"
+                placeholder="1"
+              />
             </div>
           </div>
           {/* button */}
           <div className="max-w-[316px] mx-auto flex justify-center">
-            <button className="btn capitalize w-full lg:w-auto">{btnText}</button>
+            <button className="btn capitalize w-full lg:w-auto" type="submit">
+              {btnText}
+            </button>
           </div>
         </motion.form>
+        <ReservationInfoPopup
+          isOpen={isOpen}
+          reservationInfo={reservationInfo}
+          setIsOpen={setIsOpen}
+        />
       </div>
     </section>
   );

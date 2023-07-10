@@ -3,12 +3,14 @@ import React, { useEffect, useState } from 'react';
 import Socials from './Socials';
 import Nav from './Nav';
 // import logo
-import LogoWhite from '../assets/img/header/logo-white.png';
+import LogoWhite from '../assets/img/header/logo.png';
 // import motion
 import { motion } from 'framer-motion';
 // import variants
 import { staggerContainer, fadeIn, headerVariants, navVariants } from '../variants';
 const Header = () => {
+  // nav ref
+  const ref = React.useRef();
   // header state
   const [isActive, setIsActive] = useState(false);
   // nav state
@@ -19,6 +21,18 @@ const Header = () => {
       window.scrollY > 50 ? setIsActive(true) : setIsActive(false);
     });
   });
+
+  React.useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.composedPath().includes(ref.current)) {
+        setNav(false);
+      }
+    };
+
+    document.body.addEventListener('mousedown', handleClickOutside);
+
+    return () => document.body.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <motion.header
@@ -61,18 +75,21 @@ const Header = () => {
             <a href="/#">
               {/* if header is active make logo 90x90px else 107x107px */}
               <img
-                className={`${isActive ? 'w-[90px] h-[90px]' : 'w-[107px] h-[107px]'}`}
+                className={`${
+                  isActive ? 'w-[90px] h-[90px]' : 'w-[107px] h-[107px]'
+                } border-2 border-white rounded-full`}
                 src={LogoWhite}
                 alt="logo"
               />
             </a>
           </motion.div>
           {/* social icons */}
-          <motion.div variants={fadeIn('down', 'tween', 1.4, 1.4)} className="hidden lg:flex ">
+          <motion.div variants={fadeIn('down', 'tween', 1.4, 1.4)} className="hidden lg:flex">
             <Socials />
           </motion.div>
           {/* nav */}
           <motion.div
+            ref={ref}
             variants={navVariants}
             initial="hidden"
             animate={nav ? 'show' : ''}

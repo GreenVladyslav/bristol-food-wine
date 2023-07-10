@@ -5,13 +5,22 @@ import { menuData } from '../data';
 import { motion } from 'framer-motion';
 // import variants
 import { fadeIn, staggerContainer, menuVariants } from '../variants';
+// import components
+import MenuCarousel from './MenuCarousel';
 
 const Menu = () => {
   // destructure menu data
   const { title, subtitle, modelImg, menuItems, btnText } = menuData;
 
+  // menuCarousel state
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setIsOpen(true);
+  };
+
   return (
-    <section className="min-h-[780px]">
+    <section className="min-h-[780px]" id="menu">
       {/* background */}
       <div className="h-[780px] bg-menu absolute w-full max-w-[1800px] -z-0"></div>
       {/* text */}
@@ -57,19 +66,21 @@ const Menu = () => {
                       {/* image */}
                       {/* reverse order for the first image and the last one */}
                       <div
-                        className={`w-[45%] md:w-auto my-1 sm:my-0 ${
+                        className={`w-[45%] md:w-auto my-1 lg:my-0 ${
                           index === 1 || index === 3 ? 'lg:order-1' : 'order-none'
                         }`}>
                         <img src={image} alt="menu" />
                       </div>
                       {/* text */}
-                      <div className="bg-[#fff3e4] my-1 sm:my-0 flex-1 flex-col justify-center px-6 lg:p-12 lg:max-h-[250px] xl:max-h-max">
+                      <div className="bg-[#fff3e4] my-1 lg:my-0 flex-1 flex-col justify-center p-2 sm:p-6 lg:px-6 lg:p-12 lg:max-h-[250px] xl:max-h-max">
                         <div className="text-center">
-                          <div className="text-xl font-semibold text-dark xl:text-2xl">{name}</div>
-                          <div className="my-1 text-[20px] lg:text-[40px] lg:my-6 text-accent font-semibold">
+                          <div className="text-base sm:text-xl font-semibold text-dark xl:text-xl">
+                            {name}
+                          </div>
+                          <div className="my-1 text-base sm:text-[20px] lg:text-[40px] lg:my-6 text-accent font-semibold">
                             {price}
                           </div>
-                          <div>{description}</div>
+                          <div className="text-sm sm:text-lg">{description}</div>
                         </div>
                       </div>
                     </div>
@@ -78,9 +89,12 @@ const Menu = () => {
               })}
             </div>
           </div>
-          <button className="btn mx-auto capitalize">{btnText}</button>
+          <button onClick={handleClick} className="btn mx-auto capitalize">
+            {btnText}
+          </button>
         </div>
       </motion.div>
+      <MenuCarousel isOpen={isOpen} setIsOpen={setIsOpen} />
     </section>
   );
 };

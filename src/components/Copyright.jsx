@@ -6,7 +6,7 @@ const Copyright = () => {
       <div className="container mx-auto">
         <div className="py-6">
           <p className="text-base text-center">
-            Copyright &copy; 2023 Bistro Cafe. All rights reserved.
+            Розробка Vladyslav.dev &copy; 2023 Bistrol FOOD & WINE. Всі права захищені.
           </p>
         </div>
       </div>

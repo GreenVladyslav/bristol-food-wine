@@ -19,10 +19,10 @@ const TestimonialCarousel = ({ slider }) => {
         // destructure item
         const { image, message, name, occupation } = item;
         return (
-          <div className="max-w-[840px] mx-auto px-24 text-white" key={index}>
-            <div className="text-lg mb-9 lg:text-2xl leading-snug">{message}</div>
+          <div className="max-w-[840px] mx-auto px-14 sm:px-24 text-white" key={index}>
+            <div className="text-base ss:text-lg mb-9 lg:text-2xl leading-snug">{message}</div>
             <div className="max-w-[70px] lg:max-w-[100px] mx-auto mb-3">
-              <img src={image} alt="testemomials" />
+              <img className="rounded-full" src={image} alt="testemomials" />
             </div>
             <div className="font-bold text-[22px] text-accent">{name}</div>
             <div className="font-medium italic">{occupation}</div>

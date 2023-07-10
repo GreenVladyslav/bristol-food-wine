@@ -13,6 +13,7 @@ module.exports = {
       },
     },
     screens: {
+      ss: '520px',
       sm: '640px',
       md: '768px',
       lg: '1024px',
@@ -37,6 +38,7 @@ module.exports = {
         menu: "url('assets/img/menu/bg.png')",
         testimonial: "url('assets/img/testimonial/bg.png')",
         newsletter: "url('assets/img/newsletter/bg.png')",
+        popup: "url('assets/img/newsletter/popup.png')",
         footer: "url('assets/img/footer/bg.png')",
       },
     },
