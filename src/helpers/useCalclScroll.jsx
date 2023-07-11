@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import useWindowWidth from './useWindowWith';
 
 function CalcScroll() {
   const div = document.createElement('div');
@@ -19,6 +20,7 @@ function CalcScroll() {
 
 const useCalcScroll = (open) => {
   const scroll = CalcScroll();
+  const windowWidth = useWindowWidth();
 
   useEffect(() => {
     const headerElement = document.querySelector('header');
@@ -26,7 +28,10 @@ const useCalcScroll = (open) => {
     if (open) {
       document.body.style.overflow = 'hidden';
       document.body.style.marginRight = `${scroll}px`;
-      headerElement.classList.add(`pr-[8px]`);
+
+      windowWidth > 1024
+        ? headerElement.classList.add(`pr-[8px]`)
+        : headerElement.classList.add(`pr-[0px]`);
     }
 
     return () => {
