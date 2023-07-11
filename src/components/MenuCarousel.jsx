@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 // import data
 import { menuPhoto } from '../data';
 // import carousel slider
@@ -9,10 +9,28 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import '../slider.css';
 // import icons
 import { AiOutlineClose } from 'react-icons/ai';
+// import calcScroll
+import useCalclScroll from '../helpers/useCalclScroll';
 
 const MenuCarousel = ({ isOpen, setIsOpen }) => {
   // menuCarousel ref
   const ref = useRef();
+  // delay
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    let timeoutId;
+
+    if (isOpen) {
+      timeoutId = setTimeout(() => {
+        setShowPopup(true);
+      }, 500);
+    }
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     if (isOpen) {
@@ -45,9 +63,11 @@ const MenuCarousel = ({ isOpen, setIsOpen }) => {
     setIsOpen(false);
   };
 
+  useCalclScroll(isOpen);
+
   return (
     <div className="relative z-50">
-      {isOpen ? (
+      {isOpen && showPopup ? (
         <div className="fixed inset-0 flex items-center justify-center bg-overflow">
           <div ref={ref} className="relative">
             <div className="absolute top-0 right-0 text-4xl text-white/70 cursor-pointer z-50">

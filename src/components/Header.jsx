@@ -15,6 +15,7 @@ const Header = () => {
   const [isActive, setIsActive] = useState(false);
   // nav state
   const [nav, setNav] = useState(false);
+
   // event listener
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -23,29 +24,33 @@ const Header = () => {
   });
 
   React.useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.composedPath().includes(ref.current)) {
-        setNav(false);
-      }
-    };
+    if (nav) {
+      const handleClickOutside = (event) => {
+        if (!event.composedPath().includes(ref.current)) {
+          setNav(!nav);
+        }
+      };
 
-    document.body.addEventListener('mousedown', handleClickOutside);
+      document.body.addEventListener('mousedown', handleClickOutside);
 
-    return () => document.body.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+      return () => document.body.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [nav]);
 
   return (
     <motion.header
       variants={headerVariants}
       initial="hidden"
       animate={isActive ? 'show' : 'hidden'}
-      className="fixed w-full max-w-[1800px] z-50 py-4">
+      className={`fixed w-full max-w-[1800px] z-50 py-4`}>
       <motion.div
         variants={staggerContainer(0.3, 1)}
         initial="hidden"
         animate={'show'}
         className="container mx-auto">
-        <div className="flex justify-between items-center px-4 lg:px-0 relative text-white">
+        <div
+          ref={ref}
+          className="flex justify-between items-center px-4 lg:px-0 relative text-white">
           {/* menu button */}
           <motion.div
             variants={fadeIn('down', 'tween', 1, 1.4)}
@@ -89,11 +94,10 @@ const Header = () => {
           </motion.div>
           {/* nav */}
           <motion.div
-            ref={ref}
             variants={navVariants}
             initial="hidden"
             animate={nav ? 'show' : ''}
-            className="absolute bg-accent w-[310px] h-[50vh] right-0 lg:left-0 top-[120px] bottom-0 z-50 rounded-lg shadow-xl">
+            className="absolute bg-accent w-[310px] h-[65vh] sm:h-[50vh] right-0 lg:left-0 top-[120px] bottom-0 z-50 rounded-lg shadow-xl">
             <Nav />
           </motion.div>
         </div>

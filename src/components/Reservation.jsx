@@ -47,8 +47,6 @@ const Reservation = () => {
 
     setIsOpen(true);
 
-    console.log(reservationInfo);
-
     // Clear the input field
     setPeople('1');
     setClock('9:00');

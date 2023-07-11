@@ -1,9 +1,27 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 // import icons
 import { IoClose } from 'react-icons/io5';
+// import calcScroll
+import useCalclScroll from '../helpers/useCalclScroll';
 
 const ReservationInfoPopup = ({ isOpen, setIsOpen, reservationInfo }) => {
   const ref = useRef();
+  // delay
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    let timeoutId;
+
+    if (isOpen) {
+      timeoutId = setTimeout(() => {
+        setShowPopup(true);
+      }, 500);
+    }
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     if (isOpen) {
@@ -36,9 +54,11 @@ const ReservationInfoPopup = ({ isOpen, setIsOpen, reservationInfo }) => {
     setIsOpen(false);
   };
 
+  useCalclScroll(isOpen);
+
   return (
     <div className="relative">
-      {isOpen ? (
+      {isOpen && showPopup ? (
         <div className="fixed inset-0 flex items-center justify-center z-10 bg-overflow">
           <div
             dir="rtl"
