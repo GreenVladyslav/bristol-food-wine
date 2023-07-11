@@ -8,14 +8,18 @@ import LogoWhite from '../assets/img/header/logo.png';
 import { motion } from 'framer-motion';
 // import variants
 import { staggerContainer, fadeIn, headerVariants, navVariants } from '../variants';
+// useWindowWith
+import useWindowWidth from '../helpers/useWindowWith';
 
-const Header = ({ value }) => {
+const Header = () => {
   // nav ref
   const ref = React.useRef();
   // header state
   const [isActive, setIsActive] = useState(false);
   // nav state
   const [nav, setNav] = useState(false);
+  // windowWidth
+  const windowWidth = useWindowWidth();
 
   // event listener
   useEffect(() => {
@@ -43,7 +47,9 @@ const Header = ({ value }) => {
       variants={headerVariants}
       initial="hidden"
       animate={isActive ? 'show' : 'hidden'}
-      className="fixed w-full max-w-[1800px] z-50 py-4">
+      className={`${
+        windowWidth < 1024 ? 'pr-0' : 'pr-[8px]'
+      } fixed w-full max-w-[1800px] z-50 py-4 `}>
       <motion.div
         variants={staggerContainer(0.3, 1)}
         initial="hidden"

@@ -22,10 +22,11 @@ const useCalcScroll = (open) => {
 
   useEffect(() => {
     const headerElement = document.querySelector('header');
+
     if (open) {
       document.body.style.overflow = 'hidden';
       document.body.style.marginRight = `${scroll}px`;
-      headerElement.classList.add('pr-[8px]');
+      headerElement.classList.add(`pr-[8px]`);
     }
 
     return () => {
