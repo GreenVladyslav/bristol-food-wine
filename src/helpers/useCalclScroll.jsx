@@ -31,14 +31,13 @@ const useCalcScroll = (open) => {
 
       windowWidth > 1024
         ? headerElement.classList.add(`pr-[8px]`)
-        : headerElement.classList.add(`mr-[8px]`);
+        : headerElement.classList.add(`pr-[0px]`);
     }
 
     return () => {
       document.body.style.overflow = '';
       document.body.style.marginRight = `0px`;
       headerElement.classList.remove('pr-[8px]');
-      headerElement.classList.remove('mr-[0px]');
     };
   }, [open, scroll]);
 };
