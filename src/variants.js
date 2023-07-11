@@ -52,11 +52,13 @@ export const plateVariants = {
 // header variants
 export const headerVariants = {
   hidden: {
-    padding: '84px 0 84px 0',
-    background: 'none',
+    paddingTop: '84px',
+    paddingBottom: '84px',
+    background: 'rgba(0, 0, 0, 0)',
   },
   show: {
-    padding: '14px 0 14px 0',
+    paddingTop: '14px',
+    paddingBottom: '14px',
     background: 'rgba(0, 0, 0, 0.92)',
     transition: {
       type: 'spring',

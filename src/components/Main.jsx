@@ -7,6 +7,7 @@ import Header from './Header';
 import { motion } from 'framer-motion';
 // import variants
 import { fadeIn, staggerContainer } from '../variants';
+import { Link } from 'react-router-dom';
 
 const Main = () => {
   // destructure Main data
@@ -45,7 +46,11 @@ const Main = () => {
           </motion.p>
           {/* button */}
           <motion.div variants={fadeIn('down', 'tween', 0.5, 1.1)}>
-            <button className="btn">{btnText}</button>
+            <Link to="/history">
+              <button type="button" className="btn">
+                {btnText}
+              </button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

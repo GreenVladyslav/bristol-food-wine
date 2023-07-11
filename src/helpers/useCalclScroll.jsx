@@ -21,16 +21,19 @@ const useCalcScroll = (open) => {
   const scroll = CalcScroll();
 
   useEffect(() => {
+    const headerElement = document.querySelector('header');
     if (open) {
       document.body.style.overflow = 'hidden';
       document.body.style.marginRight = `${scroll}px`;
+      headerElement.classList.add('pr-[8px]');
     }
 
     return () => {
       document.body.style.overflow = '';
       document.body.style.marginRight = `0px`;
+      headerElement.classList.remove('pr-[8px]');
     };
-  }, [open]);
+  }, [open, scroll]);
 };
 
 export default useCalcScroll;

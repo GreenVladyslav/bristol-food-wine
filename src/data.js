@@ -27,6 +27,10 @@ import MenuPhoto8 from '../src/assets/img/menu/photo_8.jpg';
 import MenuPhoto9 from '../src/assets/img/menu/photo_9.jpg';
 import MenuPhoto10 from '../src/assets/img/menu/photo_10.jpg';
 
+import HistoryImg1 from '../src/assets/img/history/history_1.png';
+import HistoryImg2 from '../src/assets/img/history/history_2.png';
+import HistoryImg3 from '../src/assets/img/history/history_3.png';
+
 export const menuPhoto = [
   MenuPhoto1,
   MenuPhoto2,
@@ -42,7 +46,7 @@ export const menuPhoto = [
 
 export const navData = [
   { href: '#', name: 'Головна' },
-  { href: '#about', name: 'О нас' },
+  { href: '#about', name: 'Про нас' },
   { href: '#menu', name: 'Меню' },
   { href: '#team', name: 'Команда' },
   { href: '#testimonial', name: 'Відгуки' },
@@ -50,7 +54,8 @@ export const navData = [
   { href: '#contact', name: 'Контакти' },
 ];
 
-// my mainData
+export const historyData = [HistoryImg1, HistoryImg2, HistoryImg3];
+
 export const mainData = {
   pretitle: 'Ніщо так не зближує як',
   title: 'Bristol',

@@ -1,26 +1,21 @@
 import React from 'react';
-
-// import components
-import Main from './components/Main';
-import About from './components/About';
-import Menu from './components/Menu';
-import Team from './components/Team';
-import Testimonial from './components/Testimonial';
-import Reservation from './components/Reservation';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import pages
+import Layout from './pages/Layout';
+import History from './pages/History';
+import ScrollToTop from './helpers/scrollToTop';
 
 function App() {
   return (
-    <div className="h-full bg-layout bg-repeat max-w-[1800px] mx-auto overflow-hidden">
-      <Main />
-      <About />
-      <Menu />
-      <Team />
-      <Testimonial />
-      <Reservation />
-      <Footer />
-      <div className="h-[380px] md:h-[370px]"></div>
-    </div>
+    <Router>
+      <ScrollToTop />
+      <div className="h-full bg-layout bg-repeat max-w-[1800px] mx-auto overflow-hidden">
+        <Routes>
+          <Route path="/" element={<Layout />} />
+          <Route path="/history" element={<History />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

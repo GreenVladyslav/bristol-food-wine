@@ -5,6 +5,8 @@ import { aboutData } from '../data';
 import { motion } from 'framer-motion';
 // import variants
 import { plateVariants, staggerContainer, fadeIn } from '../variants';
+// import link
+import { Link } from 'react-router-dom';
 
 const About = () => {
   //destructure data
@@ -27,7 +29,9 @@ const About = () => {
             <div className="pretitle">{pretitle}</div>
             <h2 className="h2 capitalize">{title}</h2>
             <p className="mb-8 max-w-[560px]">{subtitle}</p>
-            <button className="btn capitalize mx-auto lg:mx-0">{btnText}</button>
+            <Link to="/history">
+              <button className="btn capitalize mx-auto lg:mx-0">{btnText}</button>
+            </Link>
           </motion.div>
           {/* image */}
           <motion.div variants={plateVariants} className="-mb-[300px] -mr-[186px] z-10">

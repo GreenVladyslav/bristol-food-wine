@@ -24,7 +24,7 @@ const MenuCarousel = ({ isOpen, setIsOpen }) => {
     if (isOpen) {
       timeoutId = setTimeout(() => {
         setShowPopup(true);
-      }, 500);
+      }, 300);
     }
 
     return () => {
@@ -56,7 +56,9 @@ const MenuCarousel = ({ isOpen, setIsOpen }) => {
 
     document.body.addEventListener('mousedown', handleClickOutside);
 
-    return () => document.body.removeEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.body.removeEventListener('mousedown', handleClickOutside);
+    };
   }, [setIsOpen]);
 
   const handleClose = () => {
@@ -70,7 +72,7 @@ const MenuCarousel = ({ isOpen, setIsOpen }) => {
       {isOpen && showPopup ? (
         <div className="fixed inset-0 flex items-center justify-center bg-overflow">
           <div ref={ref} className="relative">
-            <div className="absolute top-0 right-0 text-4xl text-white/70 cursor-pointer z-50">
+            <div className="absolute top-0 right-[21rem] lg:right-0 sm:right-[17rem] text-4xl text-white/70 cursor-pointer z-50">
               <AiOutlineClose onClick={handleClose} className=" " />
             </div>
 
@@ -80,7 +82,7 @@ const MenuCarousel = ({ isOpen, setIsOpen }) => {
               showIndicators={false}
               autoPlay={false}
               infiniteLoop={true}
-              className="max-w-[1024px] flex items-center justify-center top-1/2">
+              className="max-w-[1024px] flex items-center justify-center ">
               {menuPhoto.map((item, index) => {
                 return (
                   <div className="mx-auto px-14 sm:px-24 text-white" key={index}>

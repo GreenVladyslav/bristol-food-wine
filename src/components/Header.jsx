@@ -8,7 +8,8 @@ import LogoWhite from '../assets/img/header/logo.png';
 import { motion } from 'framer-motion';
 // import variants
 import { staggerContainer, fadeIn, headerVariants, navVariants } from '../variants';
-const Header = () => {
+
+const Header = ({ value }) => {
   // nav ref
   const ref = React.useRef();
   // header state
@@ -23,7 +24,7 @@ const Header = () => {
     });
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (nav) {
       const handleClickOutside = (event) => {
         if (!event.composedPath().includes(ref.current)) {
@@ -42,7 +43,7 @@ const Header = () => {
       variants={headerVariants}
       initial="hidden"
       animate={isActive ? 'show' : 'hidden'}
-      className={`fixed w-full max-w-[1800px] z-50 py-4`}>
+      className="fixed w-full max-w-[1800px] z-50 py-4">
       <motion.div
         variants={staggerContainer(0.3, 1)}
         initial="hidden"

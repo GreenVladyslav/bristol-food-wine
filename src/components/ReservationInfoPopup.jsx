@@ -15,7 +15,7 @@ const ReservationInfoPopup = ({ isOpen, setIsOpen, reservationInfo }) => {
     if (isOpen) {
       timeoutId = setTimeout(() => {
         setShowPopup(true);
-      }, 500);
+      }, 300);
     }
 
     return () => {
