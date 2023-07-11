@@ -23,6 +23,7 @@ module.exports = {
       colors: {
         body: '#e5e5e5',
         dark: '#0a0909',
+        overflow: 'rgba(0, 0, 0, 0.8)',
         grey: {
           DEFAULT: '#777876',
           100: '#e4e4e3',

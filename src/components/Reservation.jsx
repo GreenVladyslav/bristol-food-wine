@@ -38,10 +38,6 @@ const Reservation = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Do something with the input value
-    console.log('startDate:', startDate);
-    console.log('clock:', clock);
-    console.log('people:', people);
 
     setReservationInfo({
       date: startDate,
@@ -54,7 +50,7 @@ const Reservation = () => {
     console.log(reservationInfo);
 
     // Clear the input field
-    setPeople('');
+    setPeople('1');
     setClock('9:00');
     setStartDate(new Date());
   };
